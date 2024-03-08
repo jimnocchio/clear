@@ -147,3 +147,5 @@ for n in range(100,1000000):
         result=count
         last=a  
 print(last)
+
+#성공
