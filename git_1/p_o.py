@@ -132,20 +132,40 @@
 #풀이: n/2(짝수), 3n+1(홀수) while문으로 1이 될떄까지 진행해서 몇번의 계산과정을 거친지 확인한다.
 
 
-result=0
-a=0
-for n in range(100,1000000):   
-    a=n
-    count=0
-    while n!=1:
-        if n%2==0:
-            n=n/2
-        else:
-            n=3*n+1
-        count+=1   
-    if result<count:
-        result=count
-        last=a  
-print(last)
+# result=0
+# a=0
+# for n in range(100,1000000):   
+#     a=n
+#     count=0
+#     while n!=1:
+#         if n%2==0:
+#             n=n/2
+#         else:
+#             n=3*n+1
+#         count+=1   
+#     if result<count:
+#         result=count
+#         last=a  
+# print(last)
 
-#성공
+#출력값: 20*20 격자의 경우의 수
+#풀이: 순서가 상관없이 오른쪽 20번 아래쪽 20번을 선택해서 길 조합을 만들어야한다.
+#함수를 만들어 입력받은수에 맞는 수학식을 사용해보자
+
+# def twenty(n):
+#     fnum=1
+#     lnum=1
+#     for i in range(n//2+1,n+1):
+#         fnum*=i    
+#     for j in range(1,n//2+1):
+#         lnum*=j
+#     result=fnum//lnum
+#     return result
+# print(twenty(40))
+
+import math 
+
+def combination(n,r):
+    return math.factorial(n)//(math.factorial(r)*math.factorial(n-r))
+
+print(combination(40,20))
